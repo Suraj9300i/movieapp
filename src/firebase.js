@@ -3,12 +3,12 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCVb78Eam0hRJJHXgDt66cNmP6zv-b-NeU",
-  authDomain: "clone-2d4e6.firebaseapp.com",
-  projectId: "clone-2d4e6",
-  storageBucket: "clone-2d4e6.appspot.com",
-  messagingSenderId: "584854773213",
-  appId: "1:584854773213:web:c4613ba23c28d012b02a34",
+  apiKey: "AIzaSyDTPOLvkYW7zn4UX1RmYuZd0coTpP5C2Eo",
+  authDomain: "movie-app-941ac.firebaseapp.com",
+  projectId: "movie-app-941ac",
+  storageBucket: "movie-app-941ac.appspot.com",
+  messagingSenderId: "398074458341",
+  appId: "1:398074458341:web:ab5bd571637233802be40c"
 };
 
 firebase.initializeApp(firebaseConfig);
