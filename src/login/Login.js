@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Login.css";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
@@ -16,9 +16,12 @@ const Login = ({LogoutUser,LoginUser}) => {
       }
       let displayName  = user.multiFactor.user.displayName;
       LoginUser(displayName);
-      console.log(`Successfull Login + ${displayName}`)
+      console.log(`Successfull Login + ${displayName}`);
     });
   }, []);
+
+  const [username, setUsername] = useState("");
+  const [password,setPassword] = useState("");
 
   return (
     <div className="LoginScreen">
@@ -28,8 +31,12 @@ const Login = ({LogoutUser,LoginUser}) => {
         </div>
         <div className="LoginBox__main">
           <form>
-            <input className="input" type="text" placeholder="Email"></input>
-            <input className="input" type="text" placeholder="Password"></input>
+            <input className="input" value={username} onChange={(e)=>{
+              setUsername(e.target.value);
+            }} type="text" placeholder="Email"></input>
+            <input className="input" value={password} onChange={(e)=>{
+              setPassword(e.target.value);
+            }}  type="text" placeholder="Password"></input>
             <div className="LoginBox__main-socialmedia">
               <span
                 onClick={(e) => {
@@ -42,7 +49,16 @@ const Login = ({LogoutUser,LoginUser}) => {
               <BsGithub />
               <FaLinkedin />
             </div>
-            <button className="login_button" type="submit">
+            <button className="login_button" type="submit" onClick={(e)=>{
+              e.preventDefault();
+              if(username==="" || password===""){
+                alert("Please enter valid username and password");
+                return;
+              }
+              let displayName  = username;
+              LoginUser(displayName);
+              console.log(`Successfull Login + ${displayName}`);
+            }}>
               Login
             </button>
           </form>
